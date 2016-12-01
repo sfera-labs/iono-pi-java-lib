@@ -50,6 +50,7 @@ Clone this repo using git:
     
 Build the jar using [Maven](http://maven.apache.org/):
 
+    $ cd iono-pi-java-lib
     $ mvn clean install
     
 The resulting jar will be in the `target` directory: `iono-pi-<version>.jar`
