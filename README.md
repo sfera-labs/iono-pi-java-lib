@@ -66,13 +66,17 @@ The entry point to the API is the `IonoPi` abstract class.
 
 Before anything else, you need to call once:
 
-    IonoPi.init();
+```Java
+IonoPi.init();
+```
 
 to initialize the library and configure the Raspberry Pi's GPIO pins.
 
 When Iono Pi's functionalities are no longer needed:
 
-    IonoPi.shutdown();
+```Java
+IonoPi.shutdown();
+```
 
 And here are the available functionalities:
 
@@ -80,12 +84,16 @@ And here are the available functionalities:
 
 Set the LED on/off:
 
-	boolean on = true; // or false
-    IonoPi.LED.set(on);
+```Java
+boolean on = true; // or false
+IonoPi.LED.set(on);
+```
 
 Check if it's on:
 
-    boolean on = IonoPi.LED.isOn();
+```Java
+boolean on = IonoPi.LED.isOn();
+```
 
 ### Outputs
 
@@ -93,80 +101,105 @@ The outputs are accessible via the `IonoPi.Output` enumeration.
 
 The relay outputs:
 
-    IonoPi.Output.O1
-    IonoPi.Output.O2
-    IonoPi.Output.O3
-    IonoPi.Output.O4
+```Java
+IonoPi.Output.O1
+IonoPi.Output.O2
+IonoPi.Output.O3
+IonoPi.Output.O4
+```
 
 and the open collectors:
 
-    IonoPi.Output.OC1
-    IonoPi.Output.OC2
-    IonoPi.Output.OC3
+```Java
+IonoPi.Output.OC1
+IonoPi.Output.OC2
+IonoPi.Output.OC3
+```
 
 Set closed/open:
 
-    boolean closed = true; // or false
-    IonoPi.Output.O1.set(closed);
+```Java
+boolean closed = true; // or false
+IonoPi.Output.O1.set(closed);
+```
 
 Check:
 
-    boolean closed = IonoPi.Output.OC3.isClosed();
+```Java
+boolean closed = IonoPi.Output.OC3.isClosed();
+```
 
 ### Digital Inputs
 
-    IonoPi.DigitalInput.DI1
-    IonoPi.DigitalInput.DI2
-    IonoPi.DigitalInput.DI3
-    IonoPi.DigitalInput.DI4
-    IonoPi.DigitalInput.DI5
-    IonoPi.DigitalInput.DI6
+```Java
+IonoPi.DigitalInput.DI1
+IonoPi.DigitalInput.DI2
+IonoPi.DigitalInput.DI3
+IonoPi.DigitalInput.DI4
+IonoPi.DigitalInput.DI5
+IonoPi.DigitalInput.DI6
+```
 
 Read state:
 
-    boolean high = IonoPi.DigitalInput.DI4.isHigh();
+```Java
+boolean high = IonoPi.DigitalInput.DI4.isHigh();
+```
 
 Set interrupt listener:
 
-    IonoPi.DigitalInput.DI6.setListener(new DigitalInputListener() {
+```Java
+IonoPi.DigitalInput.DI6.setListener(new DigitalInputListener() {
 
-        @Override
-        public void onChange(DigitalInput input, boolean high) {
-            System.out.println(high ? "high" : "low");
-        }
-    });
+    @Override
+    public void onChange(DigitalInput input, boolean high) {
+        System.out.println(high ? "high" : "low");
+    }
+});
+```
 
 Remove listener:
 
-    IonoPi.DigitalInput.DI6.setListener(null);
+```Java
+IonoPi.DigitalInput.DI6.setListener(null);
+```
 
 ### Digital I/Os (TTL lines)
 
-    IonoPi.DigitalIO.TTL1
-    IonoPi.DigitalIO.TTL2
-    IonoPi.DigitalIO.TTL3
-    IonoPi.DigitalIO.TTL4
+```Java
+IonoPi.DigitalIO.TTL1
+IonoPi.DigitalIO.TTL2
+IonoPi.DigitalIO.TTL3
+IonoPi.DigitalIO.TTL4
+```
 
 Set high/low:
 
-    boolean high = true; // or false
-    IonoPi.DigitalIO.TTL2.set(high);
+```Java
+boolean high = true; // or false
+IonoPi.DigitalIO.TTL2.set(high);
+```
 
 Check:
 
-    boolean high = IonoPi.DigitalIO.TTL2.isHigh();
-
+```Java
+boolean high = IonoPi.DigitalIO.TTL2.isHigh();
+```
 
 ### Analog Inputs
 
-    IonoPi.AnalogInput.AI1
-    IonoPi.AnalogInput.AI2
-    IonoPi.AnalogInput.AI3
-    IonoPi.AnalogInput.AI4
+```Java
+IonoPi.AnalogInput.AI1
+IonoPi.AnalogInput.AI2
+IonoPi.AnalogInput.AI3
+IonoPi.AnalogInput.AI4
+```
 
 Read voltage value:
 
-    float v = IonoPi.AnalogInput.AI1.read();
+```Java
+float v = IonoPi.AnalogInput.AI1.read();
+```
 
 ### 1-Wire
 
@@ -174,62 +207,70 @@ Read voltage value:
 
 Retrieve all devices on the bus:
 
-    List<OneWireBusDevice> devices = IonoPi.OneWire.getBusDevices();
-    for (OneWireBusDevice d : devices) {
-        System.out.println("ID: " + d.getId());
-    }
+```Java
+List<OneWireBusDevice> devices = IonoPi.OneWire.getBusDevices();
+for (OneWireBusDevice d : devices) {
+    System.out.println("ID: " + d.getId());
+}
+```
 
 Read temperature measured by device (with max 3 attempts):
 
-    OneWireBusDevice d;
-    int milliC = d.readTemperature(3);
-    System.out.println("T: " + milliC / 1000.0 + " °C");
+```Java
+OneWireBusDevice d;
+int milliC = d.readTemperature(3);
+System.out.println("T: " + milliC / 1000.0 + " °C");
+```
 
 #### 1-Wire MaxDetect
 
 Read temperature and relative humidity from the probe connected to TTL2 (with max 3 attempts):
 
-    int[] t_rh = IonoPi.OneWire.maxDetectRead(IonoPi.DigitalIO.TTL2, 3);
-    if (t_rh != null) {
-        System.out.println("T: " + t_rh[0] / 10.0 + "°C");
-        System.out.println("RH: " + t_rh[1] / 10.0 + "%");
-    }
+```Java
+int[] t_rh = IonoPi.OneWire.maxDetectRead(IonoPi.DigitalIO.TTL2, 3);
+if (t_rh != null) {
+    System.out.println("T: " + t_rh[0] / 10.0 + "°C");
+    System.out.println("RH: " + t_rh[1] / 10.0 + "%");
+}
+```
 
 ### Wiegand
 
-    IonoPi.Wiegand.W1 // TTL1 = Wiegand Data 0, TTL2 = Wiegand Data 1
-    IonoPi.Wiegand.W2 // TTL3 = Wiegand Data 0, TTL4 = Wiegand Data 1
+```Java
+IonoPi.Wiegand.W1 // TTL1 = Wiegand Data 0, TTL2 = Wiegand Data 1
+IonoPi.Wiegand.W2 // TTL3 = Wiegand Data 0, TTL4 = Wiegand Data 1
+```
 
 Monitor interface 1 in a new thread and stop after 30 seconds or if 42 is received:
 
-    Thread th = new Thread() {
-        public void run() {
-            try {
-                IonoPi.Wiegand.W1.monitor(new WiegandListener() {
+```Java
+Thread th = new Thread() {
+    public void run() {
+        try {
+            IonoPi.Wiegand.W1.monitor(new WiegandListener() {
 
-                    @Override
-                    public boolean onData(Wiegand wInterface, int count, long data) {
-                        System.out.println("Bits: " + count + " - Data: " + data);
-                        if (data == 42) {
-                            return false;
-                        }
-                        return true;
+                @Override
+                public boolean onData(Wiegand wInterface, int count, long data) {
+                    System.out.println("Bits: " + count + " - Data: " + data);
+                    if (data == 42) {
+                        return false;
                     }
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+                    return true;
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-    };
-
-    th.start();
-
-    try {
-        Thread.sleep(30000);
-    } catch (InterruptedException e) {
     }
+};
 
-    IonoPi.Wiegand.W1.stop();
-    th.join();
+th.start();
 
+try {
+    Thread.sleep(30000);
+} catch (InterruptedException e) {
+}
 
+IonoPi.Wiegand.W1.stop();
+th.join();
+```
