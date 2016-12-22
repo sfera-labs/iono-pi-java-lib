@@ -41,15 +41,21 @@ import cc.sferalabs.libs.iono_pi.IonoPi.DigitalInput;
 public abstract class IonoPiJNI {
 
 	private static final Map<Integer, InputListenerCouple> listeners = new HashMap<>(6);
+	private static Boolean initialized = false;
 
 	/**
 	 * 
 	 * @throws Exception
 	 */
 	public static void init() throws Exception {
-		loadNativeLibrary();
-		if (!ionoPiSetup()) {
-			throw new Exception("Iono Pi setup error");
+		synchronized (initialized) {
+			if (!initialized) {
+				loadNativeLibrary();
+				if (!ionoPiSetup()) {
+					throw new Exception("Iono Pi setup error");
+				}
+				initialized = true;
+			}
 		}
 	}
 
