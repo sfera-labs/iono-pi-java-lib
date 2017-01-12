@@ -47,11 +47,7 @@ public class Led {
 	 * 
 	 */
 	public boolean isOn() {
-		IonoPiJNI.ionoPiPinMode(IonoPiJNIConstants.LED, IonoPiJNIConstants.INPUT);
-		boolean state = IonoPiJNI
-				.ionoPiDigitalRead(IonoPiJNIConstants.LED) == IonoPiJNIConstants.ON;
-		IonoPiJNI.ionoPiPinMode(IonoPiJNIConstants.LED, IonoPiJNIConstants.OUTPUT);
-		return state;
+		return IonoPiJNI.ionoPiDigitalRead(IonoPiJNIConstants.LED) == IonoPiJNIConstants.ON;
 	}
 
 }
