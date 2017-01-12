@@ -87,10 +87,7 @@ public abstract class IonoPi {
 		 * 
 		 */
 		public boolean isClosed() {
-			IonoPiJNI.ionoPiPinMode(pin, IonoPiJNIConstants.INPUT);
-			boolean state = IonoPiJNI.ionoPiDigitalRead(pin) == IonoPiJNIConstants.CLOSED;
-			IonoPiJNI.ionoPiPinMode(pin, IonoPiJNIConstants.OUTPUT);
-			return state;
+			return IonoPiJNI.ionoPiDigitalRead(pin) == IonoPiJNIConstants.CLOSED;
 		}
 	}
 
