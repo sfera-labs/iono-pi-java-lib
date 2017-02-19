@@ -4,7 +4,7 @@
 
 	<groupId>cc.sferalabs.libs</groupId>
 	<artifactId>iono-pi</artifactId>
-	<version>1.0.0</version>
+	<version>1.2.0</version>
 
 	<name>Iono Pi Java library</name>
 	<description>A simple Java library for Iono Pi (www.sferalabs.cc/iono-pi)</description>

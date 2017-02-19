@@ -45,14 +45,14 @@ public abstract class IonoPiJNIConstants {
 	public static final int DI4 = 26;
 	public static final int DI5 = 22;
 	public static final int DI6 = 21;
-	public static final int OC1 = 11;
+	public static final int OC1 = 1;
 	public static final int OC2 = 6;
 	public static final int OC3 = 5;
 	public static final int O1 = 0;
 	public static final int O2 = 2;
 	public static final int O3 = 3;
 	public static final int O4 = 4;
-	public static final int LED = 1;
+	public static final int LED = 11;
 
 	public static final int AI1 = 0b01000000; // MCP_CH1
 	public static final int AI2 = 0b00000000; // MCP_CH0
