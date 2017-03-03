@@ -28,7 +28,7 @@ Include Iono Pi in your Java project using [Maven](http://maven.apache.org/):
         <dependency>
             <groupId>cc.sferalabs.libs</groupId>
             <artifactId>iono-pi</artifactId>
-            <version>1.2.0</version>
+            <version>1.2.1</version>
         </dependency>
         ...
     </dependencies>
