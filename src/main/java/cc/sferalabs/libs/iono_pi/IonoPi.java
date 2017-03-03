@@ -170,8 +170,21 @@ public abstract class IonoPi {
 		 * @return
 		 * @throws IOException
 		 */
-		public float read() throws IOException {
-			float val = IonoPiJNI.ionoPiAnalogRead(pin);
+		public int read() throws IOException {
+			int val = IonoPiJNI.ionoPiAnalogRead(pin);
+			if (val < 0) {
+				throw new IOException("read error");
+			}
+			return val;
+		}
+
+		/**
+		 * 
+		 * @return
+		 * @throws IOException
+		 */
+		public float readVoltage() throws IOException {
+			float val = IonoPiJNI.ionoPiVoltageRead(pin);
 			if (val < 0) {
 				throw new IOException("read error");
 			}

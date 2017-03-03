@@ -79,7 +79,9 @@ public abstract class IonoPiJNI {
 
 	public static native int ionoPiDigitalRead(int di);
 
-	public static native float ionoPiAnalogRead(int ai);
+	public static native int ionoPiAnalogRead(int ai);
+	
+	public static native float ionoPiVoltageRead(int ai);
 
 	public static native int ionoPiDigitalInterrupt(int di, int mode, boolean enable);
 

@@ -201,19 +201,19 @@ public class Main {
 						n = Integer.parseInt(parts[1]);
 						switch (n) {
 						case 1:
-							System.out.println(IonoPi.AnalogInput.AI1.read());
+							System.out.println(IonoPi.AnalogInput.AI1.readVoltage());
 							break;
 
 						case 2:
-							System.out.println(IonoPi.AnalogInput.AI2.read());
+							System.out.println(IonoPi.AnalogInput.AI2.readVoltage());
 							break;
 
 						case 3:
-							System.out.println(IonoPi.AnalogInput.AI3.read());
+							System.out.println(IonoPi.AnalogInput.AI3.readVoltage());
 							break;
 
 						case 4:
-							System.out.println(IonoPi.AnalogInput.AI4.read());
+							System.out.println(IonoPi.AnalogInput.AI4.readVoltage());
 							break;
 
 						default:

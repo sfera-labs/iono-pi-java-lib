@@ -195,10 +195,16 @@ IonoPi.AnalogInput.AI3
 IonoPi.AnalogInput.AI4
 ```
 
-Read voltage value:
+Read value:
 
 ```Java
 float v = IonoPi.AnalogInput.AI1.read();
+```
+
+Read value converted to voltage (V):
+
+```Java
+float v = IonoPi.AnalogInput.AI1.readVoltage();
 ```
 
 ### 1-Wire

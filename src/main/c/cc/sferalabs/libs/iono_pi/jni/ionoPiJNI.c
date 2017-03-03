@@ -76,9 +76,19 @@ JNIEXPORT jint JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiDigit
  * Method:    ionoPiAnalogRead
  * Signature: (I)F
  */
-JNIEXPORT jfloat JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiAnalogRead(
+JNIEXPORT jint JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiAnalogRead(
 		JNIEnv *env, jclass thisClass, jint ai) {
 	return ionoPiAnalogRead(ai);
+}
+
+/*
+ * Class:     cc_sferalabs_libs_iono_pi_jni_IonoPiJNI
+ * Method:    ionoPiVoltageRead
+ * Signature: (I)F
+ */
+JNIEXPORT jfloat JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiVoltageRead(
+		JNIEnv *env, jclass thisClass, jint ai) {
+	return ionoPiVoltageRead(ai);
 }
 
 void callDdigitalInterruptListener(int di, int val) {

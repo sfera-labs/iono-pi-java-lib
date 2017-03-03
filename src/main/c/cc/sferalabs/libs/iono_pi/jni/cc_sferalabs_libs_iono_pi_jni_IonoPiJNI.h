@@ -42,9 +42,17 @@ JNIEXPORT jint JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiDigit
 /*
  * Class:     cc_sferalabs_libs_iono_pi_jni_IonoPiJNI
  * Method:    ionoPiAnalogRead
+ * Signature: (I)I
+ */
+JNIEXPORT jint JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiAnalogRead
+  (JNIEnv *, jclass, jint);
+
+/*
+ * Class:     cc_sferalabs_libs_iono_pi_jni_IonoPiJNI
+ * Method:    ionoPiVoltageRead
  * Signature: (I)F
  */
-JNIEXPORT jfloat JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiAnalogRead
+JNIEXPORT jfloat JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiVoltageRead
   (JNIEnv *, jclass, jint);
 
 /*
