@@ -146,6 +146,12 @@ Read state:
 boolean high = IonoPi.DigitalInput.DI4.isHigh();
 ```
 
+Set debounce time:
+
+```Java
+IonoPi.DigitalInput.DI4.setDebounce(100);
+```
+
 Set interrupt listener:
 
 ```Java

@@ -73,6 +73,16 @@ JNIEXPORT jint JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiDigit
 
 /*
  * Class:     cc_sferalabs_libs_iono_pi_jni_IonoPiJNI
+ * Method:    ionoPiSetDigitalDebounce
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiSetDigitalDebounce
+(JNIEnv *env, jclass thisClass, jint di, jint millis) {
+	ionoPiSetDigitalDebounce(di, millis);
+}
+
+/*
+ * Class:     cc_sferalabs_libs_iono_pi_jni_IonoPiJNI
  * Method:    ionoPiAnalogRead
  * Signature: (I)F
  */
@@ -91,7 +101,7 @@ JNIEXPORT jfloat JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiVol
 	return ionoPiVoltageRead(ai);
 }
 
-void callDdigitalInterruptListener(int di, int val) {
+void callDigitalInterruptListener(int di, int val) {
 	if (NULL != thisClassCached && NULL != digitalInterruptCallbackCached) {
 		JNIEnv *env;
 		jint rs = (*jvm)->AttachCurrentThread(jvm, (void**) &env, NULL);
@@ -133,7 +143,7 @@ JNIEXPORT jint JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiDigit
 	}
 
 	return ionoPiDigitalInterrupt(di, mode,
-			enable ? callDdigitalInterruptListener : NULL);
+			enable ? callDigitalInterruptListener : NULL);
 }
 
 /*

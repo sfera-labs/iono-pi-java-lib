@@ -41,6 +41,14 @@ JNIEXPORT jint JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiDigit
 
 /*
  * Class:     cc_sferalabs_libs_iono_pi_jni_IonoPiJNI
+ * Method:    ionoPiSetDigitalDebounce
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_cc_sferalabs_libs_iono_1pi_jni_IonoPiJNI_ionoPiSetDigitalDebounce
+  (JNIEnv *, jclass, jint, jint);
+
+/*
+ * Class:     cc_sferalabs_libs_iono_pi_jni_IonoPiJNI
  * Method:    ionoPiAnalogRead
  * Signature: (I)I
  */

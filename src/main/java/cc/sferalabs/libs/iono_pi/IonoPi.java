@@ -113,6 +113,13 @@ public abstract class IonoPi {
 		}
 
 		/**
+		 * @param millis
+		 */
+		public void setDebounce(int millis) {
+			IonoPiJNI.ionoPiSetDigitalDebounce(pin, millis);
+		}
+
+		/**
 		 * @param listener
 		 */
 		public void setListener(DigitalInputListener listener) {

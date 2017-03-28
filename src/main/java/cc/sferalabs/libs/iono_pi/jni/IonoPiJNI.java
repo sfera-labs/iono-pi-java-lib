@@ -78,12 +78,14 @@ public abstract class IonoPiJNI {
 	public static native void ionoPiDigitalWrite(int output, int value);
 
 	public static native int ionoPiDigitalRead(int di);
+	
+	public static native void ionoPiSetDigitalDebounce(int di, int millis);
 
 	public static native int ionoPiAnalogRead(int ai);
-	
+
 	public static native float ionoPiVoltageRead(int ai);
 
-	public static native int ionoPiDigitalInterrupt(int di, int mode, boolean enable);
+	private static native int ionoPiDigitalInterrupt(int di, int mode, boolean enable);
 
 	public static void ionoPiSetDigitalInputListener(DigitalInput di, int mode,
 			DigitalInputListener listener) {
@@ -94,7 +96,6 @@ public abstract class IonoPiJNI {
 			listeners.put(di.pin, new InputListenerCouple(di, listener));
 			ionoPiDigitalInterrupt(di.pin, mode, true);
 		}
-
 	}
 
 	private static void digitalInterruptCallback(int di, int value) {
