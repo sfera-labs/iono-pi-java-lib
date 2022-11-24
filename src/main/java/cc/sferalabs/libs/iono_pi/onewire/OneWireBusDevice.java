@@ -38,7 +38,7 @@ public class OneWireBusDevice {
 	/**
 	 * 
 	 */
-	OneWireBusDevice(String id) {
+	protected OneWireBusDevice(String id) {
 		this.id = id;
 	}
 
@@ -60,6 +60,6 @@ public class OneWireBusDevice {
 		if (t != Integer.MIN_VALUE) {
 			return t;
 		}
-		throw new IOException("Could not read");
+		throw new IOException(id + ": Could not read");
 	}
 }
