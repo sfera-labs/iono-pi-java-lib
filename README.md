@@ -1,4 +1,11 @@
 # Iono Pi - Java library and utility program
+
+<hr>
+
+**DEPRECATED**: This library and utility are no longer updated. Use the [Iono Pi kernel module](https://github.com/sfera-labs/iono-pi-kernel-module) instead, which offers all the functionalities provided by this library and much more.
+
+<hr>
+
 Java library and utility program for Iono Pi (www.sferalabs.cc/iono-pi), a professional input/output expansion for Raspberry Pi.
 
 This library is a JNI wrapper of the [Iono Pi native library](https://github.com/sfera-labs/iono-pi-c-lib) which must be installed before. 
